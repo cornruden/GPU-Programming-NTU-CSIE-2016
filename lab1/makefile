@@ -8,3 +8,6 @@ lab1_exe: counting.o main.cu
 
 counting.o: counting.cu
 	$(DIR)/nvcc $(NVCC_FLAG) -c counting.cu -o counting.o
+
+clean:
+	rm -f counting.o lab1_exe

@@ -8,7 +8,6 @@
 #include "SyncedMemory.h"
 #include "Timer.h"
 #include "counting.h"
-#include <iostream>
 using namespace std;
 
 #define CHECK {\
