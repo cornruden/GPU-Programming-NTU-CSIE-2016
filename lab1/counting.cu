@@ -90,13 +90,13 @@ void Part3(char *text, int *pos, int *head, int text_size, int n_head)
     unsigned int *buffer;
     unsigned int *result;
     cudaMalloc(&buffer ,sizeof(unsigned int)*numofblocks);
-    printf("For Part3: Use pos array implements parallel reduction\n");
+    printf("For Part3: Implements parallel reduction\n");
 
     //Implement reduction.
     AlgorithmReduce<<<numofblocks,1024>>>(pos,buffer,text_size);
     text_size = numofblocks;
 
-    //Dynamic 
+    //Dynamic parallelism (?)
     while( text_size > 1024 ){
         cudaMemcpy(pos, buffer ,sizeof(unsigned int)*text_size, cudaMemcpyDeviceToDevice);
         numofblocks = (((text_size+1023)/1024)+1)/2;
